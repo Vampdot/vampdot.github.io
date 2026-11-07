@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigaNigga Online Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="text_main">
+        <h1>🎰GigaNigga Online Casino🎰</h1>
+        <p style="font-size: 20px;">Лучшее казино. С нами - проигрывают.</p>
+    </div>
+    <div class="line"></div>
+    <div class="guesstn">
+        <h1>Угадай число</h1>
+
+        <p>Баланс: <span id="balance">100</span> 💰</p>
+
+        <input type="number" id="bet" placeholder="Ставка" />
+        <input type="number" id="guess" min="0" max="5" placeholder="Число (0-5)" />
+
+        <button onclick="play()", id="play">Играть</button>
+
+        <p id="result">Сделайте ставку</p>
+    </div>
+
+    <footer>
+        <p>© 2026 GigaNigga Online Casino</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
