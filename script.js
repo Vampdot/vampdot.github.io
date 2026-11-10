@@ -14,10 +14,6 @@ function play() {
   const guessInput = document.getElementById("guess");
   const result = document.getElementById("result");
 
-  const audio = document.getElementById('sound');
-  audio.currentTime = 0; // Сбрасываем звук в начало (полезно при частых кликах)
-  audio.play();
-
   const bet = Number(betInput.value);
   const guess = Number(guessInput.value);
 
@@ -33,6 +29,12 @@ function play() {
 
   const randomNumber = Math.floor(Math.random() * 6);
 
+  const audio = document.getElementById('sound');
+  audio.currentTime = 0; // Сбрасываем звук в начало (полезно при частых кликах)
+  audio.play();
+
+  await sleep(1000); // Задержка в 1 секунду
+  
   if (guess === randomNumber) {
     const win = bet * 5;
     balance += win;
