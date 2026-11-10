@@ -1,6 +1,9 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let balance = Number(localStorage.getItem("balance")) || 100;
 
-// сразу отображаем баланс при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("balance").textContent = balance;
 });
@@ -9,7 +12,7 @@ function saveBalance() {
   localStorage.setItem("balance", balance);
 }
 
-function play() {
+async function play() {
   const betInput = document.getElementById("bet");
   const guessInput = document.getElementById("guess");
   const result = document.getElementById("result");
@@ -30,10 +33,10 @@ function play() {
   const randomNumber = Math.floor(Math.random() * 6);
 
   const audio = document.getElementById('sound');
-  audio.currentTime = 0; // Сбрасываем звук в начало (полезно при частых кликах)
+  audio.currentTime = 0; 
   audio.play();
 
-  await sleep(1000); // Задержка в 1 секунду
+  await sleep(1000); 
   
   if (guess === randomNumber) {
     const win = bet * 5;
@@ -44,10 +47,8 @@ function play() {
     result.textContent = "❌ Проигрыш. Выпало " + randomNumber;
   }
 
-  // обновляем UI
   document.getElementById("balance").textContent = balance;
 
-  // сохраняем
   saveBalance();
 
   if (balance <= 0) {
